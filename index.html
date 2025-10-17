@@ -4,274 +4,288 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Henny Safira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* ====== WARNA UTAMA ====== */
     :root {
-      --biru-tua: #06142e;
-      --biru-sedang: #1b3358;
-      --biru-terang: #00b4d8;
-      --putih: #f0f8ff;
-      --abu: #a9bcd0;
+      --primary: #00c6ff;
+      --secondary: #0072ff;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --radius: 14px;
+      --shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    /* ====== STYLE DASAR ====== */
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
+
     body {
-      background: var(--biru-tua);
-      color: var(--putih);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
-    /* ====== HEADER ====== */
     header {
-      background: var(--biru-sedang);
+      background: rgba(30, 41, 59, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 18px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 10%;
+      justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      font-size: 1.8rem;
-      color: var(--biru-terang);
-    }
-    nav a {
-      color: var(--putih);
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: var(--biru-terang);
+      z-index: 100;
+      box-shadow: var(--shadow);
     }
 
-    /* ====== BAGIAN ====== */
-    section {
-      padding: 70px 10%;
+    header h1 {
+      font-size: 22px;
+      color: var(--primary);
     }
+
+    nav a {
+      color: var(--text);
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
     h2 {
       text-align: center;
-      font-size: 2rem;
-      color: var(--biru-terang);
+      color: var(--primary);
+      font-size: 28px;
       margin-bottom: 30px;
+      text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    /* ====== TENTANG ====== */
-    .about {
+    /* ---------------- HERO ---------------- */
+    .hero {
       text-align: center;
+      margin-top: 40px;
     }
-    .about img {
-      width: 180px;
-      height: 180px;
+
+    .hero img {
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
+      border: 4px solid var(--primary);
       object-fit: cover;
-      border: 3px solid var(--biru-terang);
-      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.4s;
     }
+
+    .hero img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      margin-top: 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* ---------------- ABOUT ---------------- */
     .about p {
-      font-size: 1rem;
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
-      color: var(--abu);
-    }
-
-    /* ====== SKILL ====== */
-    .skills {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .skill-box {
-      background: var(--biru-sedang);
-      padding: 12px 25px;
-      border-radius: 30px;
-      transition: 0.3s;
-      font-weight: 500;
-    }
-    .skill-box:hover {
-      background: var(--biru-terang);
-      color: var(--biru-tua);
-      transform: scale(1.05);
-    }
-
-    /* ====== PENDIDIKAN ====== */
-    .education {
       text-align: center;
-    }
-    .education p {
-      font-size: 1.1rem;
-      color: var(--abu);
+      color: var(--muted);
+      font-size: 16px;
     }
 
-    /* ====== PORTOFOLIO ====== */
-    .portfolio-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .portfolio-item {
-      background: var(--biru-sedang);
-      border-radius: 15px;
-      overflow: hidden;
-      width: 380px;
-      transition: 0.4s;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    }
-    .portfolio-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(0,180,216,0.6);
-    }
-    .portfolio-item img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-    .portfolio-item h3 {
-      color: var(--biru-terang);
-      margin: 15px;
-    }
-    .portfolio-item p {
-      margin: 0 15px 20px;
-      font-size: 0.95rem;
-      color: var(--abu);
+    /* ---------------- GRID SECTION ---------------- */
+    /* Semua bagian yang memiliki layout kotak (Skills, Education, Portfolio, Certificates) */
+
+    .skills, .education, .portfolio, .certificates {
+      display: grid;
+      gap: 30px; /* jarak antar kotak lebih besar */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ukuran kotak lebih lebar */
+      margin-top: 35px;
     }
 
-    /* ====== SERTIFIKAT ====== */
-    .certificates {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .certificate {
-      background: var(--biru-sedang);
-      border-radius: 10px;
-      padding: 20px;
-      width: 280px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .certificate:hover {
-      background: var(--biru-terang);
-      color: var(--biru-tua);
-      transform: scale(1.05);
-    }
-
-    /* ====== FOOTER ====== */
-    footer {
-      background: var(--biru-sedang);
-      text-align: center;
+    /* Card umum */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
       padding: 25px;
-      color: var(--abu);
-      font-size: 0.9rem;
-      margin-top: 50px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    /* ====== RESPONSIVE ====== */
-    @media (max-width: 768px) {
-      nav a {
-        margin: 0 8px;
-        font-size: 0.9rem;
-      }
-      .portfolio-item {
-        width: 90%;
-      }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Skill item */
+    .skill-item {
+      background: rgba(255, 255, 255, 0.06);
+      text-align: center;
+      padding: 14px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .skill-item:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Gambar dalam card */
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      text-align: center;
+      background: var(--card);
+      padding: 25px;
+      color: var(--muted);
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
     <h1>Henny Safira</h1>
     <nav>
-      <a href="#tentang">Tentang</a>
-      <a href="#skill">Skill</a>
-      <a href="#pendidikan">Pendidikan</a>
+      <a href="#about">Tentang</a>
+      <a href="#skills">Skill</a>
+      <a href="#education">Pendidikan</a>
       <a href="#portfolio">Portofolio</a>
-      <a href="#sertifikat">Sertifikat</a>
+      <a href="#certificates">Sertifikat</a>
     </nav>
   </header>
 
-  <!-- TENTANG -->
-  <section id="tentang" class="about">
-    <img src="https://i.imgur.com/tFUzRql.jpg" alt="Foto Profil">
-    <h2>Tentang Saya</h2>
-    <p>Halo! Saya <strong>Henny Safira</strong>, siswi jurusan <strong>Rekayasa Perangkat Lunak</strong> yang memiliki ketertarikan di dunia
-    <strong>pengembangan aplikasi</strong> dan <strong>desain web</strong>.  
-    Saya bersemangat untuk terus belajar dan menciptakan karya digital yang menarik, bermanfaat, dan mudah digunakan.</p>
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800" alt="Foto Profil">
+    <h1>HENNY SAFIRA</h1>
+    <p>Junior Programmer</p>
   </section>
 
-  <!-- SKILL -->
-  <section id="skill">
+  <section id="about" class="about">
+    <h2>Tentang Saya</h2>
+    <p>
+      Halo! Saya <b>Henny Safira</b>, siswa kelas XI SMK Informatika Utama jurusan <b>Pengembangan Perangkat Lunak dan Gim (PPLG)</b>.
+      Saya memiliki keahlian dalam pengembangan web menggunakan <b>HTML, CSS, PHP, dan MySQL</b>.
+      Berpengalaman membuat project seperti <b>Website Toko Online</b> dan <b>Dashboard Sekolah</b>.
+      Saya juga terampil menggunakan <b>Microsoft Office</b> serta memiliki karakter <b>proaktif, adaptif, dan bertanggung jawab</b>.
+    </p>
+  </section>
+
+  <section id="skills">
     <h2>Skill</h2>
     <div class="skills">
-      <div class="skill-box">HTML</div>
-      <div class="skill-box">CSS</div>
-      <div class="skill-box">JavaScript</div>
-      <div class="skill-box">PHP</div>
-      <div class="skill-box">Laravel</div>
-      <div class="skill-box">MySQL</div>
-      <div class="skill-box">Java</div>
+      <div class="skill-item">HTML</div>
+      <div class="skill-item">CSS</div>
+      <div class="skill-item">PHP</div>
+      <div class="skill-item">MySQL</div>
+      <div class="skill-item">Microsoft Office</div>
+      <div class="skill-item">Laravel (dasar)</div>
     </div>
   </section>
 
-  <!-- PENDIDIKAN -->
-  <section id="pendidikan" class="education">
+  <section id="education">
     <h2>Pendidikan</h2>
-    <p>SMK Negeri [Nama Sekolah]<br>
-    Jurusan Rekayasa Perangkat Lunak (RPL)<br>
-    2022 - Sekarang</p>
+    <div class="education">
+      <div class="card">
+        <h3>SMPN 02 Tangerang Selatan</h3>
+        <p><em>2021 - 2024</em></p>
+      </div>
+      <div class="card">
+        <h3>SMK Informatika Utama</h3>
+        <p>Rekayasa Perangkat Lunak (RPL)</p>
+        <p><em>2024 - Sekarang</em></p>
+      </div>
+    </div>
   </section>
 
-  <!-- PORTOFOLIO -->
   <section id="portfolio">
     <h2>Portofolio</h2>
-    <div class="portfolio-container">
-      <div class="portfolio-item">
-        <img src="https://i.imgur.com/fBZXYaB.jpg" alt="Aplikasi Kasir">
-        <h3>Aplikasi Kasir</h3>
-        <p>Program kasir berbasis Java untuk menghitung total belanja, diskon, dan kembalian secara otomatis.</p>
+    <div class="portfolio">
+      <div class="card">
+        <img src="https://i.imgur.com/9YfXzLf.png" alt="Project 1">
+        <h3>Toko Online</h3>
+        <p>Website toko online sederhana dengan fitur keranjang dan checkout.</p>
       </div>
-      <div class="portfolio-item">
-        <img src="https://i.imgur.com/RoyQp9V.jpeg" alt="Website Toko GOIB">
-        <h3>Website Toko GOIB</h3>
-        <p>Website toko online sederhana menampilkan produk pakaian dan sepatu dengan fitur keranjang belanja.</p>
+      <div class="card">
+        <img src="https://i.imgur.com/zO4Xc6W.png" alt="Project 2">
+        <h3>Dashboard Sekolah</h3>
+        <p>Aplikasi manajemen data siswa dan guru dengan Laravel dan MySQL.</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/4GhnkTn.png" alt="Project 3">
+        <h3>Website Portofolio</h3>
+        <p>Website portofolio pribadi dengan HTML, CSS, dan JavaScript.</p>
       </div>
     </div>
   </section>
 
-  <!-- SERTIFIKAT -->
-  <section id="sertifikat">
+  <section id="certificates">
     <h2>Sertifikat</h2>
     <div class="certificates">
-      <div class="certificate">
-        <h3>Dicoding: Dasar Pemrograman Web</h3>
-        <p>2024</p>
+      <div class="card">
+        <img src="https://i.imgur.com/aKxEKnf.png" alt="Certificate 1">
+        <h3>Dicoding - Web Developer</h3>
+        <p>Sertifikat pelatihan dasar HTML, CSS, dan JavaScript.</p>
       </div>
-      <div class="certificate">
-        <h3>Pelatihan Java Fundamentals</h3>
-        <p>2023</p>
+      <div class="card">
+        <img src="https://i.imgur.com/SRba1BB.png" alt="Certificate 2">
+        <h3>Sololearn - JavaScript</h3>
+        <p>Sertifikat penyelesaian kursus dasar JavaScript.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    &copy; 2025 Henny Safira | Dibuat dengan 💙 warna biru tua
+    <p>📧 <a href="mailto:hennysafira@example.com">hennysafira@example.com</a> | 🌍 Tangerang Selatan, Indonesia</p>
+    <p>© 2025 Henny Safira</p>
   </footer>
-
 </body>
 </html>
