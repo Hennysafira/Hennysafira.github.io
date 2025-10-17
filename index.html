@@ -1,56 +1,72 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Henny Safira</title>
   <style>
-    /* ========== STYLE UMUM ========== */
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0d1b2a;
-      color: #e0e1dd;
+    /* ====== WARNA UTAMA ====== */
+    :root {
+      --biru-tua: #06142e;
+      --biru-sedang: #1b3358;
+      --biru-terang: #00b4d8;
+      --putih: #f0f8ff;
+      --abu: #a9bcd0;
     }
+
+    /* ====== STYLE DASAR ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: var(--biru-tua);
+      color: var(--putih);
+      scroll-behavior: smooth;
+    }
+
+    /* ====== HEADER ====== */
     header {
+      background: var(--biru-sedang);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #1b263b;
-      padding: 20px 50px;
+      padding: 20px 10%;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
     header h1 {
-      color: #00b4d8;
-      font-size: 1.5rem;
-      margin: 0;
+      font-size: 1.8rem;
+      color: var(--biru-terang);
     }
     nav a {
-      color: #e0e1dd;
+      color: var(--putih);
       text-decoration: none;
       margin: 0 15px;
       font-weight: 500;
+      transition: 0.3s;
     }
     nav a:hover {
-      color: #00b4d8;
+      color: var(--biru-terang);
     }
 
+    /* ====== BAGIAN ====== */
     section {
-      padding: 60px 10%;
+      padding: 70px 10%;
     }
     h2 {
       text-align: center;
-      color: #00b4d8;
       font-size: 2rem;
+      color: var(--biru-terang);
       margin-bottom: 30px;
-    }
-    p {
-      line-height: 1.6;
+      letter-spacing: 1px;
     }
 
-    /* ========== TENTANG SAYA ========== */
+    /* ====== TENTANG ====== */
     .about {
       text-align: center;
     }
@@ -59,38 +75,46 @@
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #00b4d8;
+      border: 3px solid var(--biru-terang);
+      margin-bottom: 20px;
+    }
+    .about p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: auto;
+      color: var(--abu);
     }
 
-    /* ========== SKILL ========== */
+    /* ====== SKILL ====== */
     .skills {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 15px;
     }
     .skill-box {
-      background-color: #1b263b;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-weight: 500;
+      background: var(--biru-sedang);
+      padding: 12px 25px;
+      border-radius: 30px;
       transition: 0.3s;
+      font-weight: 500;
     }
     .skill-box:hover {
-      background-color: #00b4d8;
-      color: #0d1b2a;
+      background: var(--biru-terang);
+      color: var(--biru-tua);
+      transform: scale(1.05);
     }
 
-    /* ========== PENDIDIKAN ========== */
+    /* ====== PENDIDIKAN ====== */
     .education {
       text-align: center;
     }
     .education p {
       font-size: 1.1rem;
+      color: var(--abu);
     }
 
-    /* ========== PORTOFOLIO ========== */
+    /* ====== PORTOFOLIO ====== */
     .portfolio-container {
       display: flex;
       flex-wrap: wrap;
@@ -98,31 +122,33 @@
       gap: 30px;
     }
     .portfolio-item {
-      background-color: #1b263b;
-      width: 400px;
+      background: var(--biru-sedang);
       border-radius: 15px;
       overflow: hidden;
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 380px;
+      transition: 0.4s;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
     }
     .portfolio-item:hover {
-      transform: scale(1.03);
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(0,180,216,0.6);
     }
     .portfolio-item img {
       width: 100%;
       height: 250px;
-      object-fit: cover; /* gambar terisi penuh tapi rapi */
+      object-fit: cover;
     }
     .portfolio-item h3 {
+      color: var(--biru-terang);
       margin: 15px;
-      color: #fff;
     }
     .portfolio-item p {
       margin: 0 15px 20px;
       font-size: 0.95rem;
+      color: var(--abu);
     }
 
-    /* ========== SERTIFIKAT ========== */
+    /* ====== SERTIFIKAT ====== */
     .certificates {
       display: flex;
       justify-content: center;
@@ -130,20 +156,38 @@
       gap: 20px;
     }
     .certificate {
-      background-color: #1b263b;
-      padding: 20px;
+      background: var(--biru-sedang);
       border-radius: 10px;
+      padding: 20px;
       width: 280px;
       text-align: center;
+      transition: 0.3s;
+    }
+    .certificate:hover {
+      background: var(--biru-terang);
+      color: var(--biru-tua);
+      transform: scale(1.05);
     }
 
+    /* ====== FOOTER ====== */
     footer {
+      background: var(--biru-sedang);
       text-align: center;
-      padding: 20px;
-      background-color: #1b263b;
-      color: #778da9;
+      padding: 25px;
+      color: var(--abu);
       font-size: 0.9rem;
       margin-top: 50px;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+      .portfolio-item {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -163,11 +207,11 @@
 
   <!-- TENTANG -->
   <section id="tentang" class="about">
-    <img src="https://i.imgur.com/tFUzRql.jpg" alt="Foto Profil"> 
+    <img src="https://i.imgur.com/tFUzRql.jpg" alt="Foto Profil">
     <h2>Tentang Saya</h2>
-    <p>Halo, saya <strong>Henny Safira</strong>.  
-    Seorang pelajar jurusan <strong>Rekayasa Perangkat Lunak</strong> yang tertarik dengan dunia pengembangan aplikasi dan website.  
-    Saya senang mempelajari hal baru dan berfokus pada logika serta desain antarmuka yang menarik.</p>
+    <p>Halo! Saya <strong>Henny Safira</strong>, siswi jurusan <strong>Rekayasa Perangkat Lunak</strong> yang memiliki ketertarikan di dunia
+    <strong>pengembangan aplikasi</strong> dan <strong>desain web</strong>.  
+    Saya bersemangat untuk terus belajar dan menciptakan karya digital yang menarik, bermanfaat, dan mudah digunakan.</p>
   </section>
 
   <!-- SKILL -->
@@ -187,9 +231,9 @@
   <!-- PENDIDIKAN -->
   <section id="pendidikan" class="education">
     <h2>Pendidikan</h2>
-    <p>SMK Negeri [Nama Sekolah]  
-    Jurusan Rekayasa Perangkat Lunak (RPL)</p>
-    <p>2022 - Sekarang</p>
+    <p>SMK Negeri [Nama Sekolah]<br>
+    Jurusan Rekayasa Perangkat Lunak (RPL)<br>
+    2022 - Sekarang</p>
   </section>
 
   <!-- PORTOFOLIO -->
@@ -204,7 +248,7 @@
       <div class="portfolio-item">
         <img src="https://i.imgur.com/RoyQp9V.jpeg" alt="Website Toko GOIB">
         <h3>Website Toko GOIB</h3>
-        <p>Website toko online sederhana menampilkan produk pakaian dan sepatu dengan fitur keranjang.</p>
+        <p>Website toko online sederhana menampilkan produk pakaian dan sepatu dengan fitur keranjang belanja.</p>
       </div>
     </div>
   </section>
@@ -226,7 +270,7 @@
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2025 Henny Safira | Dibuat dengan 💙
+    &copy; 2025 Henny Safira | Dibuat dengan 💙 warna biru tua
   </footer>
 
 </body>
