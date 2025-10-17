@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Henny Safira</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #00bcd4;
-      --bg: #0f1724;
-      --card: #182235;
-      --text: #e2e8f0;
+      --primary: #00c6ff;
+      --secondary: #0072ff;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
       --muted: #94a3b8;
-      --radius: 12px;
+      --radius: 14px;
+      --shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -21,29 +27,33 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
-      background: var(--card);
-      padding: 20px 40px;
+      background: rgba(30, 41, 59, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 18px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      box-shadow: var(--shadow);
     }
 
     header h1 {
-      color: var(--primary);
       font-size: 22px;
+      color: var(--primary);
     }
 
     nav a {
       color: var(--text);
-      margin-left: 16px;
+      margin-left: 18px;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
@@ -51,92 +61,133 @@
     }
 
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      padding: 70px 20px;
+      max-width: 1100px;
       margin: auto;
     }
 
     h2 {
       text-align: center;
       color: var(--primary);
-      margin-bottom: 20px;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
+    /* Hero */
     .hero {
       text-align: center;
       margin-top: 40px;
     }
 
     .hero img {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
+      border: 4px solid var(--primary);
       object-fit: cover;
-      border: 3px solid var(--primary);
+      box-shadow: var(--shadow);
+      transition: transform 0.4s;
+    }
+
+    .hero img:hover {
+      transform: scale(1.05);
     }
 
     .hero h1 {
-      margin: 16px 0 8px 0;
-      font-size: 28px;
+      font-size: 30px;
+      margin-top: 16px;
     }
 
     .hero p {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 16px;
     }
 
+    /* About */
     .about p {
       max-width: 800px;
       margin: auto;
-      color: var(--muted);
       text-align: center;
+      color: var(--muted);
+      font-size: 16px;
     }
 
-    .skills, .education, .certificates, .portfolio {
+    /* Cards Grid */
+    .skills, .education, .portfolio, .certificates {
       display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      margin-top: 20px;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 25px;
     }
 
     .card {
       background: var(--card);
-      padding: 20px;
       border-radius: var(--radius);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
 
     .skill-item {
+      background: rgba(255, 255, 255, 0.06);
       text-align: center;
-      background: rgba(255,255,255,0.05);
-      padding: 10px;
+      padding: 12px;
       border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 15px;
+      transition: 0.3s;
     }
 
-    .portfolio img, .certificate img {
+    .skill-item:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .card img {
       width: 100%;
-      height: 160px;
+      height: 170px;
       object-fit: cover;
       border-radius: var(--radius);
     }
 
-    .portfolio .card h3, .certificate .card h3 {
-      margin-top: 10px;
+    .card h3 {
+      margin-top: 12px;
       font-size: 18px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
       background: var(--card);
+      padding: 25px;
       color: var(--muted);
-      margin-top: 40px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Nama Kamu</h1>
+    <h1>Henny Safira</h1>
     <nav>
       <a href="#about">Tentang</a>
       <a href="#skills">Skill</a>
@@ -149,17 +200,16 @@
   <section class="hero">
     <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800" alt="Foto Profil">
     <h1>HENNY SAFIRA</h1>
-    <p>Junior Programer</p>
+    <p>Junior Programmer</p>
   </section>
 
   <section id="about" class="about">
     <h2>Tentang Saya</h2>
     <p>
-      Halo! Saya Henny Safira siswa kelas XI SMK Informatika Utama dengan jurusan Pengembangan Perangkat Lunak dan Gim (PPLG).
-      Terampil dalam pemgembangan aplikasi web menggunakan PHP,CSS,HTML,NETBENS,dan MYSQL.Memiliki pengalaman dalam membuat web statis yaitu project toko online,
-      serta pengoprasian Microsoft Office.Memiliki karakter yang proaktif dan adaptif,serta siap memberikan kontribusi positif dalam tim,saya memiliki minat praktik 
-      kerja lapangan (PKL) sebagai programer.
-      
+      Halo! Saya <b>Henny Safira</b>, siswa kelas XI SMK Informatika Utama jurusan <b>Pengembangan Perangkat Lunak dan Gim (PPLG)</b>.
+      Saya memiliki keahlian dalam pengembangan web menggunakan <b>HTML, CSS, PHP, dan MySQL</b>.
+      Berpengalaman membuat project seperti <b>Website Toko Online</b> dan <b>Aplikasi Kasir</b>.
+      Saya juga terampil menggunakan <b>Microsoft Office</b> serta memiliki karakter <b>proaktif, adaptif, dan bertanggung jawab</b>.
     </p>
   </section>
 
@@ -169,7 +219,9 @@
       <div class="skill-item">HTML</div>
       <div class="skill-item">CSS</div>
       <div class="skill-item">PHP</div>
-      <div class="skill-item">MYSQL</div>
+      <div class="skill-item">MySQL</div>
+      <div class="skill-item">Microsoft Office</div>
+      <div class="skill-item">Laravel (dasar)</div>
     </div>
   </section>
 
@@ -177,12 +229,12 @@
     <h2>Pendidikan</h2>
     <div class="education">
       <div class="card">
-        <h3>SMPN 02 Tanggerang Selatan</h3>
+        <h3>SMPN 02 Tangerang Selatan</h3>
         <p><em>2021 - 2024</em></p>
       </div>
       <div class="card">
         <h3>SMK Informatika Utama</h3>
-        <p>Rekayasa Perangkat Lunak</p>
+        <p>Rekayasa Perangkat Lunak (RPL)</p>
         <p><em>2024 - Sekarang</em></p>
       </div>
     </div>
@@ -192,19 +244,23 @@
     <h2>Portofolio</h2>
     <div class="portfolio">
       <div class="card">
-        <img src="https://imgur.com/a/t7OXSEn" alt="Project 1">
-        <h3>Toko Online</h3>
-        <p>Website toko online sederhana dengan fitur keranjang dan checkout.</p>
+        <!-- Gambar Project Kasir -->
+        <img src="project kasir.jpg" alt="Project Kasir">
+        <h3>Aplikasi Kasir</h3>
+        <p>Program kasir berbasis Java untuk menghitung total belanja, diskon, dan kembalian secara otomatis.</p>
       </div>
+
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200" alt="Project 2">
-        <h3>Dashboard Sekolah</h3>
-        <p>Aplikasi manajemen data siswa dan guru dengan Laravel dan MySQL.</p>
+        <!-- Gambar Website Toko Online -->
+        <img src="Screenshot_13-10-2025_10117_.jpeg" alt="Toko GOIB">
+        <h3>Website Toko GOIB</h3>
+        <p>Website toko online sederhana menampilkan produk pakaian dan sepatu dengan fitur keranjang.</p>
       </div>
+
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1200" alt="Project 3">
-        <h3>Portofolio Website</h3>
-        <p>Website portofolio pribadi dengan HTML, CSS, dan JavaScript.</p>
+        <img src="https://i.imgur.com/4GhnkTn.png" alt="Website Portofolio">
+        <h3>Website Portofolio</h3>
+        <p>Website pribadi untuk menampilkan profil, keahlian, pendidikan, dan proyek yang pernah dibuat.</p>
       </div>
     </div>
   </section>
@@ -212,13 +268,13 @@
   <section id="certificates">
     <h2>Sertifikat</h2>
     <div class="certificates">
-      <div class="card certificate">
-        <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=1200" alt="Certificate 1">
+      <div class="card">
+        <img src="https://i.imgur.com/aKxEKnf.png" alt="Certificate 1">
         <h3>Dicoding - Web Developer</h3>
         <p>Sertifikat pelatihan dasar HTML, CSS, dan JavaScript.</p>
       </div>
-      <div class="card certificate">
-        <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1200" alt="Certificate 2">
+      <div class="card">
+        <img src="https://i.imgur.com/SRba1BB.png" alt="Certificate 2">
         <h3>Sololearn - JavaScript</h3>
         <p>Sertifikat penyelesaian kursus dasar JavaScript.</p>
       </div>
@@ -226,8 +282,8 @@
   </section>
 
   <footer>
-    <p>📧 email@contoh.com | 🌍 Jakarta, Indonesia</p>
-    <p>© 2025 Nama Kamu</p>
+    <p>📧 <a href="mailto:hennysafira@example.com">hennysafira@example.com</a> | 🌍 Tangerang Selatan, Indonesia</p>
+    <p>© 2025 Henny Safira</p>
   </footer>
 </body>
 </html>
