@@ -1,133 +1,199 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Henny Safira</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Nama Kamu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+    :root {
+      --bg: #0f1724;
+      --accent: #06b6d4;
+      --muted: #94a3b8;
+      --radius: 14px;
+      color-scheme: dark;
     }
     body {
-      background-color: #f5f8ff;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg,#0b1220,#0f1724);
+      color: #e6eef6;
+      margin: 0;
+      padding: 0;
+    }
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
     }
     header {
-      background-color: #2b4eff;
-      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--accent);
+    }
+    nav a {
+      color: var(--muted);
+      margin-left: 16px;
+      text-decoration: none;
+    }
+    .hero {
       text-align: center;
-      padding: 2rem 1rem;
+      margin-top: 40px;
     }
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+    .hero img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
     }
-    header p {
-      font-size: 1rem;
-    }
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #021022;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 10px;
     }
     h2 {
-      color: #2b4eff;
-      border-bottom: 2px solid #2b4eff;
-      display: inline-block;
-      margin-bottom: 1rem;
+      margin-top: 50px;
+      text-align: center;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
-    li {
-      margin-bottom: 0.5rem;
+    .card {
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
     }
-    .skills span {
-      display: inline-block;
-      background: #e1e6ff;
-      color: #2b4eff;
-      padding: 5px 10px;
-      border-radius: 8px;
-      margin: 5px;
-      font-size: 0.9rem;
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 16px;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .skill {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 8px 12px;
+      border-radius: var(--radius);
+    }
+    .about {
+      margin-top: 50px;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--muted);
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #2b4eff;
-      color: white;
-      margin-top: 2rem;
-    }
-    a {
-      color: #2b4eff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
+  <main>
+    <header>
+      <div class="logo">Nama Kamu</div>
+      <nav>
+        <a href="#about">Tentang</a>
+        <a href="#projects">Proyek</a>
+        <a href="#skills">Skill</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+    </header>
 
-  <header>
-    <h1>Henny Safira</h1>
-    <p>Siswi SMK Informatika Utama | Rekayasa Perangkat Lunak</p>
-  </header>
+    <section class="hero">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800" alt="Foto Profil">
+      <h1>Halo, saya Nama Kamu</h1>
+      <p>Frontend Developer & Pembuat Website Responsif</p>
+      <a class="cta" href="mailto:email@contoh.com">Hubungi Saya</a>
+    </section>
 
-  <section id="about">
-    <h2>Tentang Saya</h2>
-    <p>
-      Saya siswi kelas 11 jurusan Rekayasa Perangkat Lunak (RPL) di SMK Informatika Utama.
-      Saya memiliki minat dalam bidang pengembangan web dan pembuatan aplikasi.
-      Saat ini saya sedang mempersiapkan portofolio untuk kegiatan Praktek Kerja Lapangan (PKL).
-    </p>
-  </section>
+    <section id="about" class="about">
+      <h2>Tentang Saya</h2>
+      <p>Saya adalah seorang pengembang web yang berfokus pada pembuatan antarmuka pengguna yang menarik, responsif, dan mudah digunakan. Berpengalaman dalam HTML, CSS, JavaScript, dan framework modern seperti React serta Laravel. Saya senang mempelajari teknologi baru dan menerapkannya dalam proyek nyata.</p>
+      <p>Tujuan saya adalah menjadi pengembang yang tidak hanya menciptakan website yang berfungsi dengan baik, tetapi juga memberikan pengalaman pengguna yang menyenangkan. Saya terbuka untuk peluang kerja, kolaborasi proyek, maupun freelance.</p>
+    </section>
 
-  <section id="education">
-    <h2>Pendidikan</h2>
-    <ul>
-      <li><strong>SDN [Nama Sekolah]</strong> (2014 - 2020)</li>
-      <li><strong>SMPN [Nama Sekolah]</strong> (2020 - 2023) — Anggota Ekstrakurikuler Paskibra</li>
-      <li><strong>SMK Informatika Utama</strong> (2023 - Sekarang) — Jurusan RPL, Anggota Ekstrakurikuler Pramuka</li>
-    </ul>
-  </section>
+    <section id="projects">
+      <h2>Proyek Saya</h2>
+      <div class="projects">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1200" alt="Project 1">
+          <div class="card-content">
+            <h3>Toko Online Mini</h3>
+            <p>Website e-commerce sederhana dengan fitur keranjang dan checkout (simulasi).</p>
+            <a class="cta" href="#">Lihat Repo</a>
+          </div>
+        </div>
 
-  <section id="skills">
-    <h2>Keahlian</h2>
-    <div class="skills">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript (dasar)</span>
-      <span>UI Design</span>
-      <span>Microsoft Office</span>
-    </div>
-  </section>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200" alt="Project 2">
+          <div class="card-content">
+            <h3>Dashboard Sekolah</h3>
+            <p>Aplikasi dashboard untuk manajemen siswa dan kelas, CRUD menggunakan Laravel.</p>
+            <a class="cta" href="#">Lihat Repo</a>
+          </div>
+        </div>
 
-  <section id="projects">
-    <h2>Proyek Saya</h2>
-    <ul>
-      <li><strong>Toko Online</strong> — Website sederhana berbasis HTML dan CSS untuk latihan membuat tampilan toko online.</li>
-      <li><strong>Aplikasi Kasir (POS)</strong> — Project sederhana untuk mencatat transaksi penjualan dengan fitur input produk dan total pembayaran.</li>
-    </ul>
-  </section>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1200" alt="Project 3">
+          <div class="card-content">
+            <h3>Portofolio Interaktif</h3>
+            <p>Halaman portofolio yang responsif dan mudah disesuaikan.</p>
+            <a class="cta" href="#">Lihat Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Kontak</h2>
-    <p>Email: <a href="mailto:hennysafira@gmail.com">hennysafira@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/hennysafira">github.com/hennysafira</a></p>
-  </section>
+    <section id="skills">
+      <h2>Keahlian</h2>
+      <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Laravel</div>
+        <div class="skill">React</div>
+        <div class="skill">GitHub</div>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Henny Safira | Dibuat dengan ❤️ menggunakan HTML & CSS</p>
-  </footer>
-
+    <footer id="contact">
+      <p>📧 <a href="mailto:email@contoh.com" style="color:var(--accent)">email@contoh.com</a></p>
+      <p>🌍 Jakarta, Indonesia</p>
+      <p>© 2025 Nama Kamu — Dibuat dengan 💙 dan HTML + CSS</p>
+    </footer>
+  </main>
 </body>
 </html>
