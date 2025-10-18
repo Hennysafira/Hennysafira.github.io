@@ -5,28 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portofolio Henny Safira</title>
   <style>
+    /* === STYLE DASAR === */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: radial-gradient(circle at top, #0a0a0f, #000);
+      background: radial-gradient(circle at top, #07121b, #000);
       color: #eaeaea;
-      line-height: 1.6;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* HEADER */
-    .hero {
-      background: linear-gradient(135deg, #007bff, #00c6ff);
-      color: white;
+    h2 {
+      font-size: 2.2rem;
+      color: #00c6ff;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #007bff;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s ease;
+    }
+
+    p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 80px 20px;
       text-align: center;
-      padding: 100px 20px;
       position: relative;
+      z-index: 1;
+    }
+
+    /* === ANIMASI === */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* === HEADER === */
+    header.hero {
+      background: linear-gradient(135deg, #0066ff, #00e0ff);
+      text-align: center;
+      padding: 100px 20px 120px;
+      color: white;
       box-shadow: 0 0 40px #00c6ff80;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero::after {
@@ -34,96 +68,84 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 60%);
-      z-index: 0;
     }
 
     .hero .container {
       position: relative;
       z-index: 1;
+      animation: fadeIn 1.2s ease;
     }
 
     .profile-pic {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       border: 4px solid #fff;
-      margin-bottom: 15px;
-      box-shadow: 0 0 25px #00c6ff;
+      box-shadow: 0 0 30px #00c6ff;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      text-shadow: 0 0 15px #fff, 0 0 30px #00c6ff;
+      font-size: 2.6rem;
+      text-shadow: 0 0 20px #fff, 0 0 40px #00c6ff;
     }
 
     .hero h1 span {
-      color: #ffe600;
-      text-shadow: 0 0 15px #ffe600, 0 0 25px #ffea00;
+      color: #ffea00;
+      text-shadow: 0 0 15px #ffea00;
     }
 
     .hero p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+      font-size: 1.2rem;
+      margin-top: 8px;
+      opacity: 0.95;
     }
 
-    /* SECTION */
-    section {
-      padding: 70px 20px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: #00c6ff;
-      margin-bottom: 30px;
-      text-shadow: 0 0 10px #00c6ff, 0 0 25px #00ffff;
-    }
-
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .card, .project-card, .certificate-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 15px;
-      padding: 25px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 0 10px rgba(0,255,255,0.3);
-      transition: all 0.3s ease;
-    }
-
-    .card:hover, .project-card:hover, .certificate-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 0 25px #00ffff, 0 0 50px #007bff;
-    }
-
-    /* ABOUT */
+    /* === ABOUT === */
     .about {
       max-width: 800px;
       margin: 0 auto;
       background: rgba(255,255,255,0.05);
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
       text-align: justify;
       line-height: 1.8;
+      animation: fadeIn 1s ease;
     }
 
-    /* PROJECT */
+    /* === GRID UMUM === */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+      animation: fadeIn 1s ease;
+    }
+
+    /* === CARD UMUM === */
+    .card, .project-card, .certificate-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
+      transition: 0.4s ease;
+    }
+
+    .card:hover, .project-card:hover, .certificate-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 0 25px #00ffff, 0 0 50px #007bff;
+    }
+
+    /* === PROJECT & CERTIFICATE === */
     .project-card img, .certificate-card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
-      box-shadow: 0 0 15px rgba(0,255,255,0.3);
       transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
     }
 
     .project-card img:hover, .certificate-card img:hover {
@@ -133,10 +155,11 @@
 
     .project-card h3, .certificate-card h3 {
       color: #fff;
+      margin-bottom: 8px;
       text-shadow: 0 0 10px #00c6ff;
     }
 
-    /* EDUCATION */
+    /* === EDUCATION === */
     .education ul {
       list-style: none;
       max-width: 600px;
@@ -153,48 +176,42 @@
       box-shadow: 0 0 10px rgba(0,255,255,0.2);
     }
 
-    /* CONTACT */
+    /* === CONTACT === */
     .contact a {
-      color: #00c6ff;
-      text-decoration: none;
-      text-shadow: 0 0 10px #00ffff;
       display: inline-block;
       margin: 10px;
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: 500;
+      text-shadow: 0 0 10px #00ffff;
+      transition: 0.3s;
     }
 
     .contact a:hover {
       color: #fff;
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
-    /* FOOTER */
+    /* === FOOTER === */
     footer {
-      background: rgba(0, 123, 255, 0.2);
+      background: rgba(0, 123, 255, 0.1);
       color: #00c6ff;
       text-align: center;
-      padding: 20px 0;
+      padding: 25px 0;
+      border-top: 1px solid #00c6ff40;
       font-size: 0.9rem;
-      border-top: 1px solid #00c6ff60;
-      box-shadow: 0 -5px 20px #00c6ff40;
-    }
-
-    footer p {
       text-shadow: 0 0 10px #00c6ff;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
+      .hero h1 { font-size: 1.9rem; }
+      .hero p { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Header / Profil -->
+
+  <!-- ===== HEADER ===== -->
   <header class="hero">
     <div class="container">
       <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-pic" />
@@ -203,89 +220,90 @@
     </div>
   </header>
 
-  <!-- Tentang Saya -->
+  <!-- ===== ABOUT ===== -->
   <section id="about">
     <h2>Tentang Saya</h2>
     <div class="about">
       <p>
-        Saya adalah seorang pelajar jurusan Rekayasa Perangkat Lunak yang memiliki minat besar dalam dunia teknologi dan pengembangan web. 
-        Saya senang mempelajari hal baru, terutama yang berhubungan dengan desain antarmuka dan logika pemrograman. 
-        Tujuan saya adalah menjadi seorang pengembang web profesional yang dapat menciptakan website modern, menarik, dan fungsional.
+        Saya adalah pelajar jurusan Rekayasa Perangkat Lunak yang memiliki semangat tinggi dalam mempelajari teknologi dan pengembangan website.
+        Saya menikmati proses membangun tampilan web yang menarik serta berfungsi dengan baik.
       </p>
       <p>
-        Saya percaya bahwa kerja keras, ketekunan, dan keinginan untuk terus belajar adalah kunci menuju kesuksesan. 
-        “Jangan ragu untuk menghubungi saya untuk berkolaborasi atau berbagi ide!”
+        Saya percaya bahwa setiap baris kode adalah kesempatan untuk belajar dan berkreasi. 
+        Tujuan saya adalah menjadi pengembang web yang kreatif, produktif, dan mampu memberikan solusi digital yang bermanfaat.
       </p>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section class="skills" id="skills">
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
     <h2>Keahlian</h2>
     <div class="grid">
       <div class="card">HTML</div>
       <div class="card">CSS</div>
+      <div class="card">JavaScript</div>
       <div class="card">MySQL</div>
       <div class="card">NetBeans</div>
-      <div class="card">Laragon (dasar)</div>
+      <div class="card">Laragon (Dasar)</div>
       <div class="card">Microsoft Office</div>
     </div>
   </section>
 
-  <!-- Project -->
-  <section class="projects" id="projects">
+  <!-- ===== PROJECT ===== -->
+  <section id="projects">
     <h2>Project</h2>
     <div class="grid">
       <div class="project-card">
         <img src="https://via.placeholder.com/400x250" alt="Project 1">
         <h3>Website Toko Online</h3>
-        <p>Website e-commerce sederhana yang dirancang dengan tampilan menarik dan user-friendly menggunakan HTML dan CSS.</p>
+        <p>Website e-commerce sederhana dengan tampilan menarik dan navigasi mudah. Dibuat menggunakan HTML dan CSS.</p>
       </div>
       <div class="project-card">
         <img src="https://via.placeholder.com/400x250" alt="Project 2">
         <h3>Portofolio Pribadi</h3>
-        <p>Website portofolio pribadi modern yang menampilkan informasi diri dan project, diunggah melalui GitHub Pages.</p>
+        <p>Website personal untuk menampilkan profil, project, dan sertifikat dengan desain modern dan responsif.</p>
       </div>
     </div>
   </section>
 
-  <!-- Education -->
-  <section class="education" id="education">
-    <h2>Pendidikan</h2>
-    <ul>
-      <li><strong>SMK Negeri Contoh</strong> — Rekayasa Perangkat Lunak (2022 - Sekarang)</li>
-    </ul>
-  </section>
-
-  <!-- Certificates -->
-  <section class="certificates" id="certificates">
+  <!-- ===== CERTIFICATES ===== -->
+  <section id="certificates">
     <h2>Sertifikat</h2>
     <div class="grid">
       <div class="certificate-card">
         <img src="https://via.placeholder.com/400x250" alt="Sertifikat 1">
         <h3>Sertifikat Web Design</h3>
-        <p>Diberikan atas partisipasi dalam pelatihan dasar desain web (2024).</p>
+        <p>Diberikan atas pencapaian dalam pelatihan dasar desain web (2024).</p>
       </div>
       <div class="certificate-card">
         <img src="https://via.placeholder.com/400x250" alt="Sertifikat 2">
         <h3>Sertifikat Database MySQL</h3>
-        <p>Disertifikasi dalam pembuatan dan pengelolaan database menggunakan MySQL (2024).</p>
+        <p>Menunjukkan kemampuan dalam pembuatan dan pengelolaan database menggunakan MySQL.</p>
       </div>
     </div>
   </section>
 
-  <!-- Kontak -->
-  <section class="contact" id="contact">
+  <!-- ===== EDUCATION ===== -->
+  <section id="education">
+    <h2>Pendidikan</h2>
+    <ul class="education">
+      <li><strong>SMK Negeri Contoh</strong> — Rekayasa Perangkat Lunak (2022 - Sekarang)</li>
+    </ul>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
     <h2>Kontak</h2>
     <p>Hubungi saya melalui:</p>
-    <a href="mailto:hennysafira@example.com">📧 hennysafira@example.com</a>
+    <a href="mailto:hennysafira@example.com">📧 Email</a>
     <a href="https://github.com/" target="_blank">💻 GitHub</a>
     <a href="https://www.instagram.com/" target="_blank">📸 Instagram</a>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Henny Safira | Dibuat dengan 💙 dan semangat belajar</p>
+    <p>© 2025 Henny Safira — Dibuat dengan 💙 dan semangat belajar</p>
   </footer>
+
 </body>
 </html>
