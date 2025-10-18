@@ -177,20 +177,22 @@
     }
 
     /* === CONTACT === */
-    .contact a {
-      display: inline-block;
-      margin: 10px;
-      color: #00c6ff;
-      text-decoration: none;
-      font-weight: 500;
-      text-shadow: 0 0 10px #00ffff;
-      transition: 0.3s;
-    }
+  #kontak {
+  text-align: center;
+  padding: 40px;
+}
 
-    .contact a:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
+#kontak .link {
+  color: #00ffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#kontak .link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
 
     /* === FOOTER === */
     footer {
@@ -313,12 +315,14 @@ Sertifikat ini menunjukkan kemampuan saya dalam mengembangkan logika yang komple
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact">
-    <h2>Kontak</h2>
-    <p>Hubungi saya melalui:</p>
-     <a href="+62 858-1066-0186">📧 No tlpn</a>
-    <a href="hennysafiraa13@gmail.com">📧 Email</a>
-  </section>
+  <section id="kontak">
+  <h2 class="judul">Kontak</h2>
+  <p>Hubungi saya melalui:</p>
+  <p>
+    📞 <a href="tel:+62 858-1066-0186" class="link">Nomor Telepon</a> <br>
+    📧 <a href="mailto:hennysafira@gmail.com" class="link">Email</a>
+  </p>
+</section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
