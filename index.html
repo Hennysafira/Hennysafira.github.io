@@ -76,6 +76,33 @@
       animation: fadeIn 1.2s ease;
     }
 
+    /* === NAVBAR (di kiri atas) === */
+    .navbar {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      text-shadow: 0 0 10px #00e0ff;
+    }
+
+    .navbar a:hover {
+      color: #ffea00;
+      text-shadow: 0 0 15px #ffea00;
+    }
+
     .profile-pic {
       width: 150px;
       height: 150px;
@@ -159,40 +186,22 @@
       text-shadow: 0 0 10px #00c6ff;
     }
 
-    /* === EDUCATION === */
-    .education ul {
-      list-style: none;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .education li {
-      background: rgba(255,255,255,0.05);
-      padding: 15px;
-      margin-bottom: 10px;
-      border-left: 5px solid #00c6ff;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,255,255,0.2);
-    }
-
     /* === CONTACT === */
-  #kontak {
-  text-align: center;
-  padding: 40px;
-}
+    #kontak {
+      text-align: center;
+      padding: 40px;
+    }
 
-#kontak .link {
-  color: #00ffff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+    #kontak .link {
+      color: #00ffff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-#kontak .link:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #00ffff;
-}
-
+    #kontak .link:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #00ffff;
+    }
 
     /* === FOOTER === */
     footer {
@@ -208,6 +217,7 @@
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.9rem; }
       .hero p { font-size: 1rem; }
+      .navbar ul { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -215,6 +225,15 @@
 
   <!-- ===== HEADER ===== -->
   <header class="hero">
+    <nav class="navbar">
+      <ul>
+        <li><a href="#about">Tentang Saya</a></li>
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#projects">Project</a></li>
+        <li><a href="#certificates">Sertifikat</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
     <div class="container">
       <img src="henny.jpg" alt="Foto Profil" class="profile-pic" />
       <h1>Halo, Saya <span>Henny Safira</span></h1>
@@ -227,10 +246,9 @@
     <h2>Tentang Saya</h2>
     <div class="about">
       <p>
-       Hallo!! Saya Henny Safira siswa kelas XI SMK Informatika Utama dengan jurusan Pengembangan Perangkat Lunak dan Gim (PPLG).
-        Terampil dalam pengembangan aplikasi web menggunakan HTML,CSS,PHP,NETBENS dan MYSQL.Memiliki pengalaman dalam membuat web statis yaitu Project toko online,serta mengoperasikan Microsoft Office.
-        Memiliki karakter yang proaktif dan adaptif,serta siap memberikan kontribusi positif dalam tim,
-        saya memiliki minat Praktik Kerja Lapangan (PKL) sebagai perogammer.
+        Hallo!! Saya Henny Safira siswa kelas XI SMK Informatika Utama dengan jurusan Pengembangan Perangkat Lunak dan Gim (PPLG).
+        Terampil dalam pengembangan aplikasi web menggunakan HTML, CSS, PHP, NetBeans, dan MySQL. Memiliki pengalaman dalam membuat web statis yaitu Project toko online, serta mengoperasikan Microsoft Office.
+        Memiliki karakter yang proaktif dan adaptif, serta siap memberikan kontribusi positif dalam tim. Saya memiliki minat Praktik Kerja Lapangan (PKL) sebagai programmer.
       </p>
     </div>
   </section>
@@ -256,15 +274,12 @@
       <div class="project-card">
         <img src="project kasir.jpg" alt="Project 1">
         <h3>Kasir Sederhana NetBeans</h3>
-        <p>Project diatas yang saya buat ini merupakan antarmuka sederhana dari aplikasi kasir yang berfungsi untuk menghitung total pembayaran pembelian barang. Pengguna dapat memasukkan data seperti kode barang, nama barang, harga, jumlah, dan uang yang dibayar. Setelah menekan tombol Proses, 
-          sistem akan menampilkan hasil perhitungan meliputi total harga, diskon, total bayar, serta jumlah kembalian secara otomatis.</p>
+        <p>Project ini merupakan antarmuka sederhana dari aplikasi kasir yang berfungsi untuk menghitung total pembayaran pembelian barang.</p>
       </div>
       <div class="project-card">
         <img src="project toko online.jpeg" alt="Project 2">
-        <h3>Website Toko Online</h3></h3>
-        <p>roject di atas merupakan hasil karya saya yang dibuat saat duduk di kelas X.
- Project ini berupa website toko online (web statis) yang dirancang dengan tampilan yang menarik, sederhana, dan mudah dipahami oleh pengguna. Dalam pembuatan website ini, saya menggunakan HTML dan CSS untuk membangun struktur serta desain halaman, dengan tujuan menampilkan konsep toko online yang modern dan informatif.
- Melalui project ini, saya belajar bagaimana mengatur tata letak, mengkombinasikan warna, serta membuat tampilan yang responsif agar website terlihat profesional.</p>
+        <h3>Website Toko Online</h3>
+        <p>Project ini merupakan hasil karya saya yang dibuat saat duduk di kelas X. Website ini adalah web statis toko online yang dirancang dengan tampilan menarik dan sederhana.</p>
       </div>
     </div>
   </section>
@@ -275,54 +290,31 @@
     <div class="grid">
       <div class="certificate-card">
         <img src="sertifikat html.png" alt="Sertifikat 1">
-        <h3>Sertifikat Sololearn Introduction to HTML</h3>
-        <p>Sertifikat ini saya peroleh dari Sololearn setelah menyelesaikan kursus “Introduction to HTML” pada tanggal 2 September 2025.
-Melalui pelatihan ini, saya memahami dasar-dasar struktur HTML, elemen, atribut, serta cara membangun halaman web sederhana dengan standar yang baik.
-Sertifikat ini menjadi bukti kemampuan saya dalam mengimplementasikan teori dan praktik dasar pengembangan web..</p>
+        <h3>Sololearn HTML</h3>
+        <p>Memahami dasar-dasar struktur HTML dan pembuatan halaman web sederhana.</p>
       </div>
       <div class="certificate-card">
         <img src="sertifikat css.png" alt="Sertifikat 2">
-        <h3>Sertifikat Sololearn Introduction to CSS</h3>
-        <p>Sertifikat ini saya dapatkan dari Sololearn setelah menyelesaikan kursus “Introduction to CSS” pada tanggal 4 September 2025.
-Melalui pelatihan ini, saya mempelajari dasar-dasar Cascading Style Sheets (CSS), termasuk cara mengatur tata letak, warna, font, dan elemen visual lainnya untuk menciptakan tampilan web yang menarik dan responsif.
-Sertifikat ini menunjukkan kemampuan saya dalam menggabungkan HTML dan CSS untuk membangun desain web yang estetik dan profesional.</p>
+        <h3>Sololearn CSS</h3>
+        <p>Belajar mengatur tata letak, warna, font, dan elemen visual dengan CSS.</p>
       </div>
-       <div class="certificate-card">
+      <div class="certificate-card">
         <img src="sertifikat introduction to jawascript.png" alt="Sertifikat 3">
-        <h3>Sertifikat Sololearn Introduction to JavaScript</h3>
-        <p>Sertifikat ini saya peroleh dari Sololearn setelah menyelesaikan kursus “Introduction to JavaScript” pada tanggal 6 September 2025.
-Melalui pelatihan ini, saya mempelajari konsep dasar pemrograman JavaScript, seperti variabel, fungsi, event, dan manipulasi DOM untuk membuat website yang lebih interaktif.
-Sertifikat ini menjadi bukti kemampuan saya dalam mengembangkan fitur dinamis serta logika pemrograman di dalam aplikasi web.</p>
-      </div>
-       <div class="certificate-card">
-        <img src="sertifikat javaScript Inter.png" alt="Sertifikat 2">
-        <h3>Sertifikat Sololearn JavaScript Intermediate</h3>
-        <p>Sertifikat ini saya peroleh dari Sololearn setelah menyelesaikan kursus “JavaScript Intermediate” pada tanggal 13 September 2025.
-Melalui pelatihan ini, saya memperdalam pemahaman tentang konsep lanjutan JavaScript, seperti manipulasi array, penggunaan objek, fungsi tingkat lanjut, serta pemrograman berbasis event.
-Sertifikat ini menunjukkan kemampuan saya dalam mengembangkan logika yang kompleks dan membangun interaksi yang lebih dinamis pada aplikasi web.</p>
+        <h3>Sololearn JavaScript</h3>
+        <p>Memahami konsep dasar JavaScript untuk membuat website interaktif.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== EDUCATION ===== -->
-  <section id="education">
-    <h2>Pendidikan</h2>
-    <ul class="education">
-      <li><strong>SMK Informatika Utama </strong> — Jurusan — Rekayasa Perangkat Lunak (2024 - Sekarang)</li>
-         <li><strong>SMPN 02 Tanggerang Selatan </strong> — Menyelesaikan pendidikan jenjang Sekolah Menengah Pertama, lulus pada tahun 2024. (2021 - 2024)</li>
-  
-    </ul>
-  </section>
-
   <!-- ===== CONTACT ===== -->
   <section id="kontak">
-  <h2 class="judul">Kontak</h2>
-  <p>Hubungi saya melalui:</p>
-  <p>
-    📞 <a href="tel:+62 858-1066-0186" class="link">Nomor Telepon</a> <br>
-    📧 <a href="mailto:hennysafira@gmail.com" class="link">Email</a>
-  </p>
-</section>
+    <h2>Kontak</h2>
+    <p>Hubungi saya melalui:</p>
+    <p>
+      📞 <a href="tel:+6285810660186" class="link">Nomor Telepon</a> <br>
+      📧 <a href="mailto:hennysafira@gmail.com" class="link">Email</a>
+    </p>
+  </section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
