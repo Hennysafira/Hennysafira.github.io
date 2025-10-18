@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio Henny</title>
+  <title>Portofolio Henny Safira</title>
   <style>
     * {
       margin: 0;
@@ -90,7 +90,7 @@
       margin-top: 20px;
     }
 
-    .card, .project-card {
+    .card, .project-card, .certificate-card {
       background: rgba(255,255,255,0.05);
       border-radius: 15px;
       padding: 25px;
@@ -100,13 +100,25 @@
       transition: all 0.3s ease;
     }
 
-    .card:hover, .project-card:hover {
+    .card:hover, .project-card:hover, .certificate-card:hover {
       transform: translateY(-6px) scale(1.02);
       box-shadow: 0 0 25px #00ffff, 0 0 50px #007bff;
     }
 
+    /* ABOUT */
+    .about {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+      text-align: justify;
+      line-height: 1.8;
+    }
+
     /* PROJECT */
-    .project-card img {
+    .project-card img, .certificate-card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
@@ -114,12 +126,12 @@
       transition: 0.3s;
     }
 
-    .project-card img:hover {
+    .project-card img:hover, .certificate-card img:hover {
       transform: scale(1.03);
       box-shadow: 0 0 25px #00ffff;
     }
 
-    .project-card h3 {
+    .project-card h3, .certificate-card h3 {
       color: #fff;
       text-shadow: 0 0 10px #00c6ff;
     }
@@ -146,10 +158,13 @@
       color: #00c6ff;
       text-decoration: none;
       text-shadow: 0 0 10px #00ffff;
+      display: inline-block;
+      margin: 10px;
     }
 
     .contact a:hover {
       color: #fff;
+      transform: scale(1.05);
     }
 
     /* FOOTER */
@@ -184,9 +199,25 @@
     <div class="container">
       <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-pic" />
       <h1>Halo, Saya <span>Henny Safira</span></h1>
-      <p>Junior Progammer</p>
+      <p>Junior Programmer | Web Developer</p>
     </div>
   </header>
+
+  <!-- Tentang Saya -->
+  <section id="about">
+    <h2>Tentang Saya</h2>
+    <div class="about">
+      <p>
+        Saya adalah seorang pelajar jurusan Rekayasa Perangkat Lunak yang memiliki minat besar dalam dunia teknologi dan pengembangan web. 
+        Saya senang mempelajari hal baru, terutama yang berhubungan dengan desain antarmuka dan logika pemrograman. 
+        Tujuan saya adalah menjadi seorang pengembang web profesional yang dapat menciptakan website modern, menarik, dan fungsional.
+      </p>
+      <p>
+        Saya percaya bahwa kerja keras, ketekunan, dan keinginan untuk terus belajar adalah kunci menuju kesuksesan. 
+        “Jangan ragu untuk menghubungi saya untuk berkolaborasi atau berbagi ide!”
+      </p>
+    </div>
+  </section>
 
   <!-- Skills -->
   <section class="skills" id="skills">
@@ -194,11 +225,10 @@
     <div class="grid">
       <div class="card">HTML</div>
       <div class="card">CSS</div>
-      <div class="card">MYSQL</div>
-      <div class="card">NeatBeans</div>
+      <div class="card">MySQL</div>
+      <div class="card">NetBeans</div>
       <div class="card">Laragon (dasar)</div>
-       <div class="card">Microsoft Officw</div>
-      
+      <div class="card">Microsoft Office</div>
     </div>
   </section>
 
@@ -209,12 +239,12 @@
       <div class="project-card">
         <img src="https://via.placeholder.com/400x250" alt="Project 1">
         <h3>Website Toko Online</h3>
-        <p>Website e-commerce sederhana dengan HTML, CSS, dan JavaScript.</p>
+        <p>Website e-commerce sederhana yang dirancang dengan tampilan menarik dan user-friendly menggunakan HTML dan CSS.</p>
       </div>
       <div class="project-card">
         <img src="https://via.placeholder.com/400x250" alt="Project 2">
-        <h3>Portfolio Pribadi</h3>
-        <p>Portofolio modern dan responsif yang diupload ke GitHub Pages.</p>
+        <h3>Portofolio Pribadi</h3>
+        <p>Website portofolio pribadi modern yang menampilkan informasi diri dan project, diunggah melalui GitHub Pages.</p>
       </div>
     </div>
   </section>
@@ -223,4 +253,39 @@
   <section class="education" id="education">
     <h2>Pendidikan</h2>
     <ul>
-      <li><strong>SMK Negeri Contoh</strong> — Rekayasa Perangkat Lunak (2022 - Sekarang)</
+      <li><strong>SMK Negeri Contoh</strong> — Rekayasa Perangkat Lunak (2022 - Sekarang)</li>
+    </ul>
+  </section>
+
+  <!-- Certificates -->
+  <section class="certificates" id="certificates">
+    <h2>Sertifikat</h2>
+    <div class="grid">
+      <div class="certificate-card">
+        <img src="https://via.placeholder.com/400x250" alt="Sertifikat 1">
+        <h3>Sertifikat Web Design</h3>
+        <p>Diberikan atas partisipasi dalam pelatihan dasar desain web (2024).</p>
+      </div>
+      <div class="certificate-card">
+        <img src="https://via.placeholder.com/400x250" alt="Sertifikat 2">
+        <h3>Sertifikat Database MySQL</h3>
+        <p>Disertifikasi dalam pembuatan dan pengelolaan database menggunakan MySQL (2024).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section class="contact" id="contact">
+    <h2>Kontak</h2>
+    <p>Hubungi saya melalui:</p>
+    <a href="mailto:hennysafira@example.com">📧 hennysafira@example.com</a>
+    <a href="https://github.com/" target="_blank">💻 GitHub</a>
+    <a href="https://www.instagram.com/" target="_blank">📸 Instagram</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Henny Safira | Dibuat dengan 💙 dan semangat belajar</p>
+  </footer>
+</body>
+</html>
