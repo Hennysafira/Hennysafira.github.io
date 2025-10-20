@@ -1,0 +1,218 @@
+<!--
+  Glowing Poster - single-file HTML/CSS/JS
+  ---------------------------------------
+  How to use:
+  1. Save this file as `index.html`.
+  2. Open locally in your browser to preview.
+  3. To publish on GitHub Pages:
+     - Create a new repository and push this file as the repo root (or put it inside /docs).
+     - In repository Settings -> Pages, select the branch (main) and root or /docs folder.
+     - Your poster will be live at https://<username>.github.io/<repo> (may take a minute).
+
+  Customization tips: change the text inside <h1> and <p>, tweak the CSS variables at the top
+  to change colors, glow strength, animation speed, and background.
+-->
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Poster Menyala - Glowing Poster</title>
+  <style>
+    :root{
+      --bg-1: #0f1724; /* deep space */
+      --bg-2: #081022;
+      --accent-1: #6ee7b7; /* mint */
+      --accent-2: #7c3aed; /* violet */
+      --accent-3: #f97316; /* orange */
+      --glow: 28px;
+      --pulse-duration: 3s;
+      --noise-opacity: 0.06;
+      --card-width: min(920px, 92vw);
+    }
+
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.12), transparent 8%),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(249,115,22,0.08), transparent 8%),
+                  linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      background-attachment: fixed;
+      color: #eef2ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:48px 20px;
+    }
+
+    .stage{
+      width:var(--card-width);
+      border-radius:20px;
+      padding:48px;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* animated gradient border */
+    .stage::before{
+      content:"";position:absolute;inset:-2px;border-radius:22px;padding:2px;
+      background: conic-gradient(from 120deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; /* keep border only */
+      animation: rotate 8s linear infinite;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    @keyframes rotate{to{transform:rotate(360deg)}}
+
+    /* Poster content */
+    .poster{
+      position:relative;z-index:1;display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;
+    }
+
+    @media (max-width:900px){.poster{grid-template-columns:1fr;}}
+
+    .left{
+      padding:28px 24px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      backdrop-filter: blur(6px);
+    }
+
+    h1{
+      font-size: clamp(28px, 5vw, 56px);
+      margin:0 0 12px 0;line-height:1.02;letter-spacing:-0.02em;
+      text-transform:uppercase;font-weight:800;
+      color:transparent;
+      background: linear-gradient(90deg,var(--accent-1), var(--accent-2));
+      -webkit-background-clip:text;background-clip:text;
+      text-shadow: 0 0 8px rgba(124,58,237,0.12);
+      position:relative;
+    }
+
+    /* neon outer glow */
+    .neon{
+      text-shadow:
+        0 0 6px rgba(110,231,183,0.35),
+        0 0 12px rgba(110,231,183,0.25),
+        0 0 24px rgba(124,58,237,0.18),
+        0 8px 24px rgba(2,6,23,0.6);
+      animation: pulseGlow var(--pulse-duration) ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow{
+      0%,100%{filter:drop-shadow(0 0 6px rgba(110,231,183,0.6));transform:translateY(0)}
+      50%{filter:drop-shadow(0 0 24px rgba(110,231,183,0.9));transform:translateY(-3px)}
+    }
+
+    p.lead{margin:0 0 18px 0;font-size:18px;opacity:0.95}
+
+    .cta{
+      display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;
+      box-shadow:0 8px 30px rgba(124,58,237,0.12);border: 1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(90deg, rgba(124,58,237,0.14), rgba(110,231,183,0.06));
+      color: #fff;backdrop-filter: blur(2px);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .cta:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(124,58,237,0.18)}
+
+    /* right card - image or glowing badge */
+    .right{
+      padding:22px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+      min-height:220px;
+    }
+
+    .badge{
+      width:220px;height:220px;border-radius:28px;display:flex;align-items:center;justify-content:center;
+      background: radial-gradient(circle at 30% 20%, rgba(124,58,237,0.18), transparent 10%),
+                  linear-gradient(180deg, rgba(124,58,237,0.08), rgba(110,231,183,0.05));
+      box-shadow: 0 8px 40px rgba(124,58,237,0.12), inset 0 1px 0 rgba(255,255,255,0.03);
+      position:relative;overflow:hidden;
+    }
+
+    .badge::after{
+      content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%, rgba(255,255,255,0.06), transparent 15%);
+      mix-blend-mode:overlay;pointer-events:none;
+    }
+
+    .badge h2{margin:0;font-size:28px;text-align:center;color:transparent;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));-webkit-background-clip:text}
+
+    /* floating sparks */
+    .sparks{position:absolute;inset:0;pointer-events:none;z-index:0}
+    .spark{position:absolute;width:6px;height:6px;border-radius:50%;opacity:0.9;filter:blur(1px)}
+
+    /* generate a few different spark animations */
+    @keyframes floatA{0%{transform:translateY(0) scale(0.6);opacity:0}10%{opacity:1}100%{transform:translateY(-220px) scale(1.2);opacity:0}}
+    @keyframes floatB{0%{transform:translateY(0) scale(0.6);opacity:0}8%{opacity:1}100%{transform:translateY(-160px) scale(1.0);opacity:0}}
+    @keyframes shimmer{0%{transform:scale(0.85)}50%{transform:scale(1.25)}100%{transform:scale(0.85)}}
+
+    /* bottom noise */
+    .grain{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(transparent, rgba(0,0,0,0.02));mix-blend-mode:overlay;opacity:var(--noise-opacity);z-index:2}
+
+    /* small helper */
+    .muted{opacity:0.75;font-size:13px}
+
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="poster">
+      <div class="left">
+        <h1 class="neon">Poster Menyala</h1>
+        <p class="lead">Desain poster modern dengan efek neon, glow, dan partikel kecil. Cocok untuk event, promosi, atau header website.
+        </p>
+        <p class="muted">Tips: ubah teks, warna, dan durasi animasi di bagian <code>:root</code> di atas.</p>
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <a class="cta" href="#" onclick="document.querySelector('h1').classList.toggle('neon');return false;">Toggle Glow</a>
+          <a class="cta" href="#" style="opacity:0.9;background:linear-gradient(90deg, rgba(110,231,183,0.14), rgba(124,58,237,0.06));">Pelajari Lebih</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="badge">
+          <h2>Event • 2025</h2>
+        </div>
+        <div class="muted">20 Oktober 2025 · Jakarta</div>
+      </div>
+    </div>
+
+    <!-- sparks layer (generated by JS) -->
+    <div class="sparks" id="sparks"></div>
+    <div class="grain"></div>
+  </div>
+
+  <script>
+    // simple spark generator
+    const sparks = document.getElementById('sparks');
+    const colors = ['#7c3aed','#6ee7b7','#f97316','#60a5fa'];
+    const count = 22;
+
+    for(let i=0;i<count;i++){
+      const s = document.createElement('div');
+      s.className = 'spark';
+      const size = Math.random()*6 + 3;
+      s.style.width = size+'px'; s.style.height = size+'px';
+      const left = Math.random()*100; const top = 60 + Math.random()*40;
+      s.style.left = left + '%'; s.style.top = top + '%';
+      s.style.background = colors[Math.floor(Math.random()*colors.length)];
+      s.style.opacity = 0.9*Math.random();
+      const anim = Math.random()>.5? 'floatA':'floatB';
+      s.style.animation = anim + ' ' + (3 + Math.random()*3) + 's linear infinite';
+      s.style.animationDelay = (Math.random()*3) + 's';
+      s.style.boxShadow = `0 0 ${Math.random()*18+6}px ${s.style.background}`;
+      sparks.appendChild(s);
+    }
+
+    // small responsiveness tweak: change poster layout for very narrow screens
+    window.addEventListener('resize', ()=>{
+      document.documentElement.style.setProperty('--card-width', Math.min(920, window.innerWidth - 40) + 'px');
+    });
+  </script>
+</body>
+</html>
